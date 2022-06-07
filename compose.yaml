@@ -1,0 +1,13 @@
+services:
+  main:
+    build: "./pcat-core"
+    ports:
+      - "${GUI_PORT:-80}:5000"
+
+  db:
+    image: mongo:latest
+    volumes:
+      - pcat-db:/data/db
+
+volumes:
+  pcat-db: {}
